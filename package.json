@@ -1,0 +1,98 @@
+{
+  "name": "zephyryty",
+  "displayName": "vim-like keymap",
+  "description": "自用类似vim的快捷键",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Keymaps"
+  ],
+  "contributes": {
+    "keybindings": [
+		{
+			"mac": "cmd+s",
+			"command": "workbench.action.files.saveFiles"
+		},
+		{
+			"mac": "cmd+d cmd+\\",
+			"command": "editor.action.removeBrackets",
+			"when": "editorTextFocus"
+		},
+		{
+			"mac": "alt+cmd+backspace",
+			"command": "-editor.action.removeBrackets",
+			"when": "editorTextFocus"
+		},
+		{
+			"mac": "cmd+d cmd+s",
+			"command": "editor.action.deleteLines",
+			"when": "textInputFocus && !editorReadonly"
+		},
+		{
+			"mac": "shift+cmd+k",
+			"command": "-editor.action.deleteLines",
+			"when": "textInputFocus && !editorReadonly"
+		},
+		{
+			"mac": "cmd+d cmd+r",
+			"command": "deleteAllRight",
+			"when": "textInputFocus && !editorReadonly"
+		},
+		{
+			"mac": "cmd+delete",
+			"command": "-deleteAllRight",
+			"when": "textInputFocus && !editorReadonly"
+		},
+		{
+			"mac": "cmd+d cmd+l",
+			"command": "deleteAllLeft",
+			"when": "textInputFocus && !editorReadonly"
+		},
+		{
+			"mac": "cmd+backspace",
+			"command": "-deleteAllLeft",
+			"when": "textInputFocus && !editorReadonly"
+		},
+		{
+			"mac": "cmd+d cmd+w",
+			"command": "deleteInsideWord"
+		},
+		{
+			"mac": "shift+alt+cmd+]",
+			"command": "editor.unfold",
+			"when": "editorTextFocus && foldingEnabled"
+		},
+		{
+			"mac": "alt+cmd+]",
+			"command": "-editor.unfold",
+			"when": "editorTextFocus && foldingEnabled"
+		},
+		{
+			"mac": "alt+cmd+]",
+			"command": "editor.action.selectToBracket"
+		},
+		{
+			"mac": "alt+cmd+\\",
+			"command": "editor.action.jumpToBracket",
+			"when": "editorTextFocus"
+		},
+		{
+			"mac": "shift+cmd+\\",
+			"command": "-editor.action.jumpToBracket",
+			"when": "editorTextFocus"
+		},
+		{
+			"mac": "shift+alt+cmd+[",
+			"command": "editor.fold",
+			"when": "editorTextFocus && foldingEnabled"
+		},
+		{
+			"mac": "alt+cmd+[",
+			"command": "-editor.fold",
+			"when": "editorTextFocus && foldingEnabled"
+		}
+    ]
+  }
+}
