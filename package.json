@@ -1,98 +1,146 @@
 {
-  "name": "zephyryty",
-  "displayName": "vim-like keymap",
-  "description": "自用类似vim的快捷键",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.77.0"
-  },
-  "categories": [
-    "Keymaps"
-  ],
-  "contributes": {
-    "keybindings": [
-		{
-			"mac": "cmd+s",
-			"command": "workbench.action.files.saveFiles"
-		},
-		{
-			"mac": "cmd+d cmd+\\",
-			"command": "editor.action.removeBrackets",
-			"when": "editorTextFocus"
-		},
-		{
-			"mac": "alt+cmd+backspace",
-			"command": "-editor.action.removeBrackets",
-			"when": "editorTextFocus"
-		},
-		{
-			"mac": "cmd+d cmd+s",
-			"command": "editor.action.deleteLines",
-			"when": "textInputFocus && !editorReadonly"
-		},
-		{
-			"mac": "shift+cmd+k",
-			"command": "-editor.action.deleteLines",
-			"when": "textInputFocus && !editorReadonly"
-		},
-		{
-			"mac": "cmd+d cmd+r",
-			"command": "deleteAllRight",
-			"when": "textInputFocus && !editorReadonly"
-		},
-		{
-			"mac": "cmd+delete",
-			"command": "-deleteAllRight",
-			"when": "textInputFocus && !editorReadonly"
-		},
-		{
-			"mac": "cmd+d cmd+l",
-			"command": "deleteAllLeft",
-			"when": "textInputFocus && !editorReadonly"
-		},
-		{
-			"mac": "cmd+backspace",
-			"command": "-deleteAllLeft",
-			"when": "textInputFocus && !editorReadonly"
-		},
-		{
-			"mac": "cmd+d cmd+w",
-			"command": "deleteInsideWord"
-		},
-		{
-			"mac": "shift+alt+cmd+]",
-			"command": "editor.unfold",
-			"when": "editorTextFocus && foldingEnabled"
-		},
-		{
-			"mac": "alt+cmd+]",
-			"command": "-editor.unfold",
-			"when": "editorTextFocus && foldingEnabled"
-		},
-		{
-			"mac": "alt+cmd+]",
-			"command": "editor.action.selectToBracket"
-		},
-		{
-			"mac": "alt+cmd+\\",
-			"command": "editor.action.jumpToBracket",
-			"when": "editorTextFocus"
-		},
-		{
-			"mac": "shift+cmd+\\",
-			"command": "-editor.action.jumpToBracket",
-			"when": "editorTextFocus"
-		},
-		{
-			"mac": "shift+alt+cmd+[",
-			"command": "editor.fold",
-			"when": "editorTextFocus && foldingEnabled"
-		},
-		{
-			"mac": "alt+cmd+[",
-			"command": "-editor.fold",
-			"when": "editorTextFocus && foldingEnabled"
-		}
-    ]
-  }
+	"name": "zephyryty",
+	"displayName": "vim-like keymap",
+	"description": "自用类似vim的快捷键",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.77.0"
+	},
+	"categories": [
+		"Keymaps"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ZephyRTy/vim-like-keymap"
+	},
+	"main": "./extension.js",
+	"contributes": {
+		"keybindings": [
+			{
+				"command": "workbench.action.files.saveFiles",
+				"key": "ctrl+s",
+				"mac": "cmd+s"
+			},
+			{
+				"command": "editor.action.goToTypeDefinition",
+				"key": "ctrl+alt+t",
+				"mac": "cmd+ctrl+t"
+			},
+			{
+				"command": "deleteAllRight",
+				"key": "ctrl+d ctrl+r",
+				"mac": "cmd+d cmd+r"
+			},
+			{
+				"command": "deleteAllLeft",
+				"key": "ctrl+d ctrl+l",
+				"mac": "cmd+d cmd+l"
+			},
+			{
+				"command": "deleteInsideWord",
+				"key": "ctrl+d ctrl+w",
+				"mac": "cmd+d cmd+w"
+			},
+			{
+				"when": "textInputFocus && !editorReadonly",
+				"command": "editor.action.deleteLines",
+				"key": "ctrl+d ctrl+s",
+				"mac": "cmd+d cmd+s"
+			},
+			{
+				"when": "textInputFocus && !editorReadonly",
+				"key": "ctrl+shift+k",
+				"mac": "cmd+shift+k",
+				"command": "-editor.action.deleteLines"
+			},
+			{
+				"command": "github.copilot.generate",
+				"when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused",
+				"key": "ctrl+tab ctrl+enter",
+				"mac": "cmd+tab cmd+enter"
+			},
+			{
+				"when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused",
+				"key": "ctrl+enter",
+				"mac": "cmd+enter",
+				"command": "-github.copilot.generate"
+			},
+			{
+				"when": "editorTextFocus",
+				"command": "editor.action.jumpToBracket",
+				"key": "ctrl+alt+[",
+				"mac": "cmd+alt+["
+			},
+			{
+				"when": "editorTextFocus",
+				"key": "ctrl+shift+\\",
+				"mac": "cmd+shift+\\",
+				"command": "-editor.action.jumpToBracket"
+			},
+			{
+				"when": "editorTextFocus",
+				"command": "editor.action.selectToBracket",
+				"key": "ctrl+shift+]",
+				"mac": "cmd+shift+]"
+			},
+			{
+				"command": "vim-like.selectInnerBrackets",
+				"when": "editorTextFocus",
+				"key": "ctrl+shift+[",
+				"mac": "cmd+shift+["
+			},
+			{
+				"when": "editorTextFocus",
+				"command": "editor.action.removeBrackets",
+				"key": "ctrl+d ctrl+\\",
+				"mac": "cmd+d cmd+\\"
+			},
+			{
+				"command": "vim-like.copyAroundBrackets",
+				"when": "editorTextFocus",
+				"key": "ctrl+y ctrl+]",
+				"mac": "cmd+y cmd+]"
+			},
+			{
+				"command": "vim-like.copyInnerBrackets",
+				"when": "editorTextFocus",
+				"key": "ctrl+y ctrl+[",
+				"mac": "cmd+y cmd+["
+			},
+			{
+				"command": "vim-like.deleteAroundBrackets",
+				"when": "editorTextFocus",
+				"key": "ctrl+d ctrl+]",
+				"mac": "cmd+d cmd+]"
+			},
+			{
+				"command": "vim-like.deleteInnerBrackets",
+				"when": "editorTextFocus",
+				"key": "ctrl+d ctrl+[",
+				"mac": "cmd+d cmd+["
+			},
+			{
+				"when": "editorTextFocus",
+				"key": "ctrl+alt+backspace",
+				"mac": "cmd+alt+backspace",
+				"command": "-editor.action.removeBrackets"
+			},
+			{
+				"command": "workbench.action.focusActiveEditorGroup",
+				"when": "findInputFocussed && !editorTextFocus",
+				"key": "ctrl+f",
+				"mac": "cmd+f"
+			}
+		]
+	},
+	"devDependencies": {
+		"vscode": "^1.1.37"
+	},
+	"activationEvents": [
+		"onCommand:vim-like.selectInnerBrackets",
+		"onCommand:vim-like.copyInnerBrackets",
+		"onCommand:vim-like.copyAroundBrackets",
+		"onCommand:vim-like.deleteInnerBrackets",
+		"onCommand:vim-like.deleteAroundBrackets"
+	]
 }
