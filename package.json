@@ -9,6 +9,7 @@
 	"categories": [
 		"Keymaps"
 	],
+	"icon": "vim.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ZephyRTy/vim-like-keymap"
